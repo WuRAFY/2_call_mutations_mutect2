@@ -3,10 +3,10 @@
 #PBS -l mem=8g
 #PBS -q medium
 #PBS -V
-#PBS -o /data/liuxd/21summer_training/workdir/wufy/out.log
-#PBS -e /data/liuxd/21summer_training/workdir/wufy/error.log
+#PBS -o out.log
+#PBS -e error.log
 
-workdir=/data/liuxd/21summer_training/workdir/wufy/mutect2
+workdir=./mutect2
 cd $workdir
 cat ../pat_list.txt|while read line
 do
