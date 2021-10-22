@@ -1,0 +1,5 @@
+file=read.csv("sample_list.txt",header=T)
+sample=as.vector(file$Sample.Name)
+pat=unlist(lapply(strsplit(sample,split="_"),function(x){x[1]}))
+pat=levels(factor(pat))
+write.table(pat,"pat_list.txt",sep="\n",quote = F,col.names = F,row.names = F)
