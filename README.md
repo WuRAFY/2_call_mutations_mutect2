@@ -156,6 +156,8 @@ For now, mutect2 only support run in single thread. If you want to speed up, her
 
 You can specify `-L` with a chromosome or a .bed file to run mutect2 on a small region, and submit multiple mutect2 jobs at the same time.  
 
+The scripts are stored in `paralleliztion` directory.
+
 ```{r eval=FALSE}
 gatk Mutect2 -R reference.fasta \
   -L chr1 \ ##chr1 can be substituted by chr2 chr3 ... chr22 chrX chrY
