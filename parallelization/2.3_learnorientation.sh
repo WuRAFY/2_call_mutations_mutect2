@@ -1,4 +1,4 @@
-workdir=/data/liuxd/21summer_training/workdir/wufy/batch_test
+workdir=./mutect2
 cd $workdir
 chr=(chr1 chr2 chr3)
 cat ../pat_list.txt|while read line
