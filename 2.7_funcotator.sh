@@ -16,7 +16,7 @@ gatk Funcotator \
 --variant ${line}_filter.vcf \
 --reference ../ref/reference.fasta \
 --ref-version hg38 \
---data-sources-path ../resoureces/funcotator_dataSources.v1.6.20190124s \
+--data-sources-path ../resoureces/funcotator_dataSources \
 --output ${line}.maf \
 --remove-filtered-variants \
 --output-file-format MAF \
