@@ -3,21 +3,21 @@
 #PBS -l mem=2g
 #PBS -q large
 #PBS -V
-#PBS -o /data/liuxd/21summer_training/workdir/wufy/batch_test/out.log
-#PBS -e /data/liuxd/21summer_training/workdir/wufy/batch_test/error.log
+#PBS -o out.log
+#PBS -e error.log
 
-workdir=/data/liuxd/21summer_training/workdir/wufy/batch_test
+workdir=./mutect2
 cd $workdir
 
 cat ../pat_list.txt|while read line
 do
-gatk Mutect2 -R ../ref/Homo_sapiens_assembly38.fasta \
+gatk Mutect2 -R ../ref/reference.fasta \
 -L ${1} \
--I ../data/${line}_T_MD_BQSR.bam \
--I ../data/${line}_N_MD_BQSR.bam \
+-I ../data/${line}_tumor.bam \
+-I ../data/${line}_normal.bam \
 -normal ${line}_N \
---germline-resource /data/liuxd/21summer_training/data/input/af-only-gnomad.hg38.vcf.gz \
---panel-of-normals ../mutect2/pon.vcf.gz \
+--germline-resource ../resources/germline_resouce.vcf.gz \
+--panel-of-normals pon.vcf.gz \
 --f1r2-tar-gz ./${line}/${line}_f1r2_${1}.tar.gz \
 -O ./${line}/${line}_T_${1}.vcf.gz
 done
